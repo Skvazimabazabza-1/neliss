@@ -321,7 +321,6 @@
 <body>
     <div class="background"></div>
 
-    <!-- Навигация -->
     <div class="nav-toggle" id="navToggle">
         <span></span>
         <span></span>
@@ -336,14 +335,11 @@
             <li><a href="#" data-section="order">Заказ</a></li>
             <li><a href="#" data-section="cart">Корзина</a></li>
             <li><a href="#" data-section="admin">Админ-панель</a></li>
-            <!-- ИСПРАВЛЕНО: Теперь это обычная ссылка, которая переключает секцию -->
             <li><a href="#" data-section="comments-section">Отзывы</a></li>
         </ul>
     </nav>
 
-    <!-- Основной контент -->
     <div class="content">
-        <!-- Главная -->
         <section id="home" class="active">
             <h1>Millie's Reborn Nursery</h1>
             <p>Создаем уникальные куклы ручной работы, которые станут любимыми игрушками ваших детей.</p>
@@ -352,16 +348,13 @@
             </div>
         </section>
 
-        <!-- О нас -->
         <section id="about">
             <h2>О нас</h2>
             <p>Мы - команда мастеров, создающих уникальные куклы на заказ.</p>
         </section>
 
-        <!-- Галерея -->
         <section id="gallery">
             <h2>Галерея кукол</h2>
-            <!-- /// ИЗМЕНЕННЫЙ БЛОК /// -->
             <div class="gallery">
                 <div class="photo-frame"><img src="изображение_viber_2025-11-01_12-52-31-434.jpg" alt="Фото 1"></div>
                 <div class="photo-frame"><img src="изображение_viber_2025-11-01_12-52-32-199.jpg" alt="Фото 2"></div>
@@ -370,10 +363,8 @@
                 <div class="photo-frame"><img src="изображение_viber_2025-11-01_12-52-32-408.jpg" alt="Фото 5"></div>
                 <div class="photo-frame"><img src="изображение_viber_2025-11-01_12-52-32-464.jpg" alt="Фото 6"></div>
             </div>
-            <!-- /// КОНЕЦ ИЗМЕНЕННОГО БЛОКА /// -->
-        </section>
+            </section>
 
-        <!-- Заказ -->
         <section id="order">
             <h2>Оформить заказ</h2>
             <form id="orderForm">
@@ -404,18 +395,14 @@
             </form>
         </section>
 
-        <!-- Корзина -->
         <section id="cart">
             <h2>Корзина заказов</h2>
             <div class="cart-items"><p style="text-align:center">Корзина пока пуста</p></div>
         </section>
 
-        <!-- Отзывы -->
-        <!-- ИСПРАВЛЕНО: Теперь это стандартная секция внутри .content -->
         <section id="comments-section">
             <h2 style="font-size: 2.5em;">💬 Отзывы клиентов</h2>
             
-            <!-- Форма -->
             <div style="max-width: 800px; margin: 0 auto 50px; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
                 <h3 style="color: #cc0066; text-align: center; margin-bottom: 25px;">Оставьте ваш отзыв</h3>
                 <form id="commentsForm">
@@ -439,13 +426,11 @@
                 </form>
             </div>
 
-            <!-- Список -->
             <div id="commentsDisplay" style="max-width: 1000px; margin: 0 auto;">
                 <div id="commentsList" style="display: grid; gap: 20px;"></div>
             </div>
         </section>
 
-        <!-- Админ-панель -->
         <section id="admin">
             <h2>Админ-панель</h2>
             <div id="adminLogin" class="admin-login">
@@ -457,12 +442,10 @@
             </div>
             
             <div id="adminPanel" class="admin-panel" style="display: none;">
-                <!-- Блок Яндекс.Диска ВОССТАНОВЛЕН -->
                 <div id="megaStatus" style="margin: 15px 0; padding: 12px; border-radius: 8px; text-align: center; font-weight: bold; background: #eee;">
                     Статус Я.Диска: Автообновление не запущено
                 </div>
                 <div style="display: flex; gap: 10px; margin-bottom: 20px;">
-                    <!-- Кнопки 'Сохранить' и 'Загрузить' ВОССТАНОВЛЕНЫ -->
                     <button id="syncBtn" style="background: #4CAF50;">💾 Сохранить в data.json</button>
                     <button id="loadBtn" style="background: #2196F3;">📂 Загрузить из data.json</button>
                     <button id="logoutBtn" style="background: #f44336;">Выйти</button>
@@ -481,7 +464,6 @@
         </section>
     </div>
 
-    <!-- Футер -->
     <footer>
         <p>Телефон: +380977057272 | Украина</p>
         <div class="social-links">
@@ -490,10 +472,14 @@
     </footer>
 
     <script>
-        // Константы Яндекс.Диска ВОССТАНОВЛЕНЫ с вашим НОВЫМ токеном
-        const YANDEX_DISK_TOKEN = "y0__xDK_b6HCBjblgMg-d2NkBVX4rnW-kp2fSFONufPnpCLTE6fDQ";
-        const YANDEX_API_URL = "https://cloud-api.yandex.net/v1/disk/resources";
-        const DATA_FILENAME = "data.json"; // Единый файл для всего
+        // --- КОНСТАНТЫ YANDEX CLOUD FUNCTIONS ---
+        // 🚨 ВАШ ТОКЕН ВСЕ ЕЩЕ НАХОДИТСЯ ЗДЕСЬ. Если вы выкладываете HTML на GitHub Pages, он будет виден!
+        const YANDEX_DISK_TOKEN = "y0__xDK_b6HCBjblgMg-d2NkBVX4rnW-kp2fSFONufPnpCLTE6fDQ"; // ВАШ ТОКЕН
+        
+        // URL-АДРЕСА ФУНКЦИЙ, СКОПИРОВАННЫЕ ИЗ Yandex Cloud Console
+        const LOAD_FUNCTION_URL = "https://functions.yandexcloud.net/d4esbk6hdb67j8ufh2k7";
+        const SAVE_FUNCTION_URL = "https://functions.yandexcloud.net/d4euqh5g2n7ntp8e7u6h";
+        // --- КОНЕЦ КОНСТАНТ ---
         
         let isAdminLoggedIn = false; // Отслеживаем состояние входа
         let pollIntervalId; // Для хранения идентификатора интервала
@@ -544,40 +530,37 @@
             if (comments) localStorage.setItem('dollComments', JSON.stringify(comments));
         }
 
-        // === ФУНКЦИИ YANDEX DISK (syncToYandex, loadFromYandex) УЛУЧШЕНЫ ===
+        // === ФУНКЦИИ YANDEX DISK (ЧЕРЕЗ Yandex Cloud Functions) ===
         
         async function syncToYandex() {
             showNotification('⏳ Сохранение в облако...', 'warning');
             const data = getLocalData();
             
             try {
-                // 1. Получаем URL для загрузки
-                const uploadResp = await fetch(`${YANDEX_API_URL}/upload?path=/doll_shop/${DATA_FILENAME}&overwrite=true`, {
-                    headers: { 'Authorization': `OAuth ${YANDEX_DISK_TOKEN}` }
+                // Обращаемся к функции сохранения Yandex Cloud
+                const response = await fetch(SAVE_FUNCTION_URL, {
+                    method: 'POST',
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        // Передаем токен через специальный заголовок, который читает YCF
+                        'X-Yandex-Token': YANDEX_DISK_TOKEN 
+                    },
+                    body: JSON.stringify(data)
                 });
-                
-                if (uploadResp.ok) {
-                    const { href } = await uploadResp.json();
-                    // 2. Отправляем файл
-                    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-                    const putResp = await fetch(href, { method: 'PUT', body: blob });
-                    
-                    if (putResp.ok) {
-                        showNotification('✅ Данные сохранены в data.json!', 'success');
-                        document.getElementById('megaStatus').textContent = 'Статус Я.Диска: Сохранено в облаке';
-                    }
+
+                if (response.ok) {
+                    showNotification('✅ Данные сохранены в data.json!', 'success');
+                    document.getElementById('megaStatus').textContent = 'Статус Я.Диска: Сохранено в облаке';
                 } else {
-                    // Улучшенное логирование ошибки статуса HTTP
-                    const status = uploadResp.status;
-                    const errorText = await uploadResp.text();
-                    console.error(`❌ Ошибка Yandex API. Статус: ${status}. Ответ: ${errorText.substring(0, 100)}...`);
-                    showNotification(`❌ Ошибка загрузки (Статус ${status}). Проверьте токен и путь!`, 'error');
-                    document.getElementById('megaStatus').textContent = `Статус Я.Диска: Ошибка загрузки (${status})`;
+                    const error = await response.json();
+                    console.error("Ошибка при сохранении:", error);
+                    showNotification(`❌ Ошибка сохранения (${response.status}).`, 'error');
+                    document.getElementById('megaStatus').textContent = `Статус Я.Диска: Ошибка сохранения`;
                 }
             } catch (e) {
-                console.error("Ошибка при сохранении (NetworkError/CORS):", e);
-                showNotification('❌ Ошибка сети. Невозможно связаться с Я.Диском. Проверьте соединение/токен.', 'error');
-                document.getElementById('megaStatus').textContent = 'Статус Я.Диска: Ошибка сети/CORS';
+                console.error("Ошибка при сохранении (NetworkError):", e);
+                showNotification('❌ Ошибка сети. Невозможно связаться с Yandex Cloud.', 'error');
+                document.getElementById('megaStatus').textContent = 'Статус Я.Диска: Ошибка сети';
             }
         }
 
@@ -588,16 +571,16 @@
             }
             
             try {
-                // 1. Получаем URL для скачивания
-                const downloadResp = await fetch(`${YANDEX_API_URL}/download?path=/doll_shop/${DATA_FILENAME}`, {
-                    headers: { 'Authorization': `OAuth ${YANDEX_DISK_TOKEN}` }
+                // Обращаемся к функции загрузки Yandex Cloud
+                const response = await fetch(LOAD_FUNCTION_URL, {
+                    headers: {
+                        // Передаем токен для загрузки
+                        'X-Yandex-Token': YANDEX_DISK_TOKEN
+                    }
                 });
-                
-                if (downloadResp.ok) {
-                    const { href } = await downloadResp.json();
-                    // 2. Получаем сам файл
-                    const fileResp = await fetch(href);
-                    const data = await fileResp.json();
+
+                if (response.ok) {
+                    const data = await response.json();
                     
                     if (data) {
                         // Сравниваем данные, чтобы избежать лишнего рендеринга
@@ -615,21 +598,18 @@
                         return true;
                     }
                 } else {
-                    // Улучшенное логирование ошибки статуса HTTP
-                    const status = downloadResp.status;
-                    const errorText = await downloadResp.text();
-                    console.error(`❌ Ошибка Yandex API. Статус: ${status}. Ответ: ${errorText.substring(0, 100)}...`);
-                    
+                    const error = await response.json();
+                    console.error("Ошибка при загрузке:", error);
                     if (!isSilent) {
-                        showNotification(`❌ Ошибка загрузки (Статус ${status}). Проверьте токен и наличие файла!`, 'error');
-                        document.getElementById('megaStatus').textContent = `Статус Я.Диска: Ошибка скачивания (${status})`;
+                        showNotification(`❌ Ошибка загрузки (${response.status}).`, 'error');
+                        document.getElementById('megaStatus').textContent = `Статус Я.Диска: Ошибка загрузки`;
                     }
                 }
             } catch (e) {
-                console.error("Ошибка при загрузке (NetworkError/CORS):", e);
+                console.error("Ошибка при загрузке (NetworkError):", e);
                 if (!isSilent) {
-                    showNotification('❌ Ошибка сети. Невозможно связаться с Я.Диском. Проверьте соединение/токен.', 'error');
-                    document.getElementById('megaStatus').textContent = 'Статус Я.Диска: Ошибка сети или структуры данных';
+                    showNotification('❌ Ошибка сети. Невозможно связаться с Yandex Cloud.', 'error');
+                    document.getElementById('megaStatus').textContent = 'Статус Я.Диска: Ошибка сети';
                 }
             }
             return false;
@@ -680,7 +660,7 @@
             
             orders.push(newOrder);
             saveLocalData(orders, null);
-            syncToYandex(); // ВОССТАНОВЛЕНО
+            syncToYandex(); // Теперь вызывает YCF
             
             showNotification('✅ Заказ отправлен!', 'success');
             this.reset();
@@ -702,7 +682,7 @@
             
             comments.unshift(newComment);
             saveLocalData(null, comments);
-            syncToYandex(); // ВОССТАНОВЛЕНО
+            syncToYandex(); // Теперь вызывает YCF
             
             renderAll();
             showNotification('✅ Отзыв добавлен!', 'success');
@@ -758,7 +738,7 @@
             }
             
             saveLocalData(orders, comments);
-            syncToYandex(); // ВОССТАНОВЛЕНО
+            syncToYandex(); // Теперь вызывает YCF
             renderAll();
         };
 
@@ -776,7 +756,7 @@
              checkAdminAuth(); // Используем новую функцию
         });
 
-        // Обработчики кнопок 'syncBtn' и 'loadBtn' ВОССТАНОВЛЕНЫ
+        // Обработчики кнопок 'syncBtn' и 'loadBtn'
         document.getElementById('syncBtn').addEventListener('click', syncToYandex);
         document.getElementById('loadBtn').addEventListener('click', () => loadFromYandex(false));
         
